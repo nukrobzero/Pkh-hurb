@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+     <title></title>
+   </head>
+     <body>
+      <script type="text/javascript">
+
+      var minAge = 18;
+      var today = new Date()
+      //Calculates age from given Birth Date in the form//
+       function _calcAge(birthDate, givenDate) {
+        givenDate = new Date(today);
+        var dt1 = document.getElementById('date').value;
+        var birthDate = new Date(dt1);
+        var years = (givenDate.getFullYear() - birthDate.getFullYear());
+
+        if (givenDate.getMonth() < birthDate.getMonth() ||
+     givenDate.getMonth() == birthDate.getMonth() && givenDate.getDate() < birthDate.getDate()) {
+            years--;
+        }
+
+        return years;
+    }
+
+    //Compares calculated age with minimum age and acts according to rules//
+    function _setAge() {
+
+        var age = _calcAge();
+        if (age < minAge) {
+            alert("You are not allowed into the site. The minimum age is 18!");
+        } else
+
+            alert("Welcome to my Site");
+
+
+    }
+
+
+</script>
+
+<form>
+    Date Of Birth: <input type="date" name="date of birth" id="date" />
+    <input type="submit" name="submit" id="submit" onClick="_setAge();" />
+
+</form>

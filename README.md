@@ -1,1 +1,1 @@
-extension project
+graduation project
